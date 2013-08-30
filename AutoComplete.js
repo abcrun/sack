@@ -8,7 +8,7 @@ var getPosition = function(elm,pos){
 }
 var AutoComplete = Class.create({
     constructor:function(obj){
-		var temp;
+        var temp;
         var input = 'oninput' in window?'input':'keyup';
 
         this.tip = obj.tip || '请输入关键字';
@@ -16,11 +16,11 @@ var AutoComplete = Class.create({
         if(!this.input) return;
         this.input.val(this.tip);
 
-		this.form = obj.form
-		if(!this.form && (temp = this.input.parents('form')) && temp.length){
-			this.form = temp;
-			temp = null;
-		}
+        this.form = obj.form
+        if(!this.form && (temp = this.input.parents('form')) && temp.length){
+            this.form = temp;
+            temp = null;
+        }
 
         this.suggest = obj.suggest;
         if(!this.suggest){
@@ -39,7 +39,7 @@ var AutoComplete = Class.create({
         this.input.keydown(jQuery.proxy(this.keydown,this));
         this.input.bind(input,jQuery.proxy(this.textInput,this));
 
-		if(this.form) this.form.bind('submit',jQuery.proxy(this.submit,this));
+        if(this.form) this.form.bind('submit',jQuery.proxy(this.submit,this));
         this.suggest.delegate(this.list,'mouseover',jQuery.proxy(this.mouseover,this));
         this.suggest.delegate(this.list,'click',jQuery.proxy(this.click,this));
     },
@@ -58,14 +58,14 @@ var AutoComplete = Class.create({
         this.input.val(this.current.text());
     },
     submit:function(evt){
-		if(this.form) evt.preventDefault();
+        if(this.form) evt.preventDefault();
         this.input.val(this.current.text());
     },
     keydown:function(evt){
         var keyCode = evt.keyCode,tag = this.list,hover = this.hover;
         if(keyCode >= 37 && keyCode <= 40){
             if(!this.suggest.find(tag).length) return;
-			evt.preventDefault();
+            evt.preventDefault();
 
             if(this.current) this.current.removeClass(hover);
             if(keyCode == 37 || keyCode == 38){
@@ -74,24 +74,24 @@ var AutoComplete = Class.create({
                 this.current = (!this.current?this.suggest.find(tag).first():(this.current.next().length?this.current.next():this.suggest.find(tag).first()))
             }
             this.current.addClass(hover);
-			this.input.val(this.current.text());
+            this.input.val(this.current.text());
         }else if(keyCode == 13){
             if(!this.form) this.submit();
         }
     },
-	getDatas:function(){
-		throw new Error('请在子类添加".getDatas()"这个方法，来用于请求或者输出智能提示的内容');
-	},//Abstract Method - get the prompt
+    getDatas:function(){
+        throw new Error('请在子类添加".getDatas()"这个方法，来用于请求或者输出智能提示的内容');
+    },//Abstract Method - get the prompt
     textInput:function(evt){
         var keyCode = evt.keyCode;
         if(!keyCode || ((keyCode >=48 && keyCode <= 90) || (keyCode >=96 && keyCode <= 105) || keyCode == 8 || keyCode == 32 || keyCode == 45 || keyCode == 13)){
-			this.getData();
-		}
+            this.getData();
+        }
     },	
     mouseover:function(evt){
         var target = evt.target;
         while(target && target.nodeName.toLowerCase() != this.list) target = target.parentNode;
-		if(target.nodeName.toLowerCase() != this.list) return;
+        if(target.nodeName.toLowerCase() != this.list) return;
         if(this.current) this.current.removeClass(this.hover);
         this.current = jQuery(target);
         this.current.addClass(this.hover);
