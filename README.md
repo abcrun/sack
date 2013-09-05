@@ -6,5 +6,3 @@
 
 - Controller.js - Javascript事件控制器
 - AutoComplete.js - 智能提示组件
-- SORT.js - Javascript常见排序集合
-- Selector.js - 简化版的DOM选择器
