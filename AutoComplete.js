@@ -11,7 +11,7 @@ var AutoComplete = Class.create({
         var temp;
         var input = 'oninput' in window?'input':'keyup';
 
-        this.tip = obj.tip || '请输入关键字';
+        this.tip = obj.tip || '璇疯緭鍏ュ叧閿瓧';
         this.input = obj.input;
         if(!this.input) return;
         this.input.val(this.tip);
@@ -80,12 +80,12 @@ var AutoComplete = Class.create({
         }
     },
     getDatas:function(){
-        throw new Error('请在子类添加".getDatas()"这个方法，来用于请求或者输出智能提示的内容');
+        throw new Error('璇峰湪瀛愮被娣诲姞".getDatas()"杩欎釜鏂规硶锛屾潵鐢ㄤ簬璇锋眰鎴栬�呰緭鍑烘櫤鑳芥彁绀虹殑鍐呭');
     },//Abstract Method - get the prompt
     textInput:function(evt){
         var keyCode = evt.keyCode;
         if(!keyCode || ((keyCode >=48 && keyCode <= 90) || (keyCode >=96 && keyCode <= 105) || keyCode == 8 || keyCode == 32 || keyCode == 45 || keyCode == 13)){
-            this.getData();
+            this.getDatas();
         }
     },	
     mouseover:function(evt){
