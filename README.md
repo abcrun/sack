@@ -5,4 +5,4 @@
 当前组件列表：
 
 - Controller.js - Javascript事件控制器
-- AutoComplete.js - 智能提示组件
+- AutoComplete.js - 智能提示组件（依赖于jQuery，[Class.js](https://github.com/abcrun/Class)）
