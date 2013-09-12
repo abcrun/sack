@@ -84,7 +84,7 @@ var AutoComplete = Class.create({
     },//Abstract Method - get the prompt
     textInput:function(evt){
         var keyCode = evt.keyCode;
-        if(!keyCode || ((keyCode >=48 && keyCode <= 90) || (keyCode >=96 && keyCode <= 105) || keyCode == 8 || keyCode == 32 || keyCode == 45 || keyCode == 13)){
+        if(!keyCode || ((keyCode >=48 && keyCode <= 90) || (keyCode >=96 && keyCode <= 105) || keyCode == 8 || keyCode == 32 || keyCode == 45)){
             this.getDatas();
         }
     },	
