@@ -1,3 +1,10 @@
+/**
+* AutoComplte Class (Module) - jQuery plugin
+* Require: jQuery,Class.js (https://github.com/abcrun/Class)
+* The MIT License - Copyright (c) 2013 Hongbo Yang <abcrun@gmail.com>
+* Repository - https://github.com/abcrun/sack.git
+* Version - 0.2.2
+*/
 var getPosition = function(elm,pos){
     var distance = 0;
     while(elm){
