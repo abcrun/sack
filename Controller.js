@@ -115,9 +115,11 @@
     }
 
     var define = function(arg){
-        this.elms = arg.nodeName ? [arg] :
-            arg.length && arg[0].nodeName ? arg : 
-            null;
+        if(Object.prototype.toString.call(arg).toLowerCase().indexOf('array') > 0){
+            this.elms = arg;
+        }else{
+            this.elms = [arg];
+        }
     }
     define.prototype = events();
     define.prototype.on = events.bind;
