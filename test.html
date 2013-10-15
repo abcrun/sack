@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <input type="text" id="abc"/>
+</body>
+<script type="text/javascript" src="Controller.js"></script>
+<script type="text/javascript">
+    var test = Controller.define(document.getElementById('abc'));
+    test.on('click',function(){
+            alert(1)
+            })
+</script>
+</html>

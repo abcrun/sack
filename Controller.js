@@ -121,9 +121,11 @@
             this.elms = [arg];
         }
     }
-    define.prototype = events();
-    define.prototype.on = events.bind;
-    define.prototype.un = events.unbind;
+    define_prop = events();
+    define_prop.on = define_prop.bind;
+    define_prop.un = define_prop.unbind;
+
+    define.prototype = define_prop;
 
     var controller = {
         Publisher:Publisher,
