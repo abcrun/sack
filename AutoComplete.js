@@ -87,7 +87,7 @@ var AutoComplete = Class.create({
         }
     },
     getDatas:function(){
-        throw new Error('请在子类添加".getDatas()"这个方法，来用于请求或者输出智能提示的内容');
+        throw new Error('必须包含".getDatas()"这个方法，来用于请求或者输出智能提示的内容');
     },//Abstract Method - get the prompt
     textInput:function(evt){
         var keyCode = evt.keyCode;
