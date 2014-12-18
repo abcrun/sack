@@ -69,7 +69,10 @@ var AutoComplete = Class.create({
         },500)
     },
     setInputValue:function(text){
-        var v_input = this.current.attr('title') || this.current.text();
+        var v_input,tag = this.list;
+        if(!this.current) this.current = this.suggest.find(tag).first();//Set the current element after getDatas() before submit
+
+        v_input = this.current.attr('title') || this.current.text();
         this.input.val(v_input);
     },
     click:function(){
